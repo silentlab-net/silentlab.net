@@ -1,0 +1,8 @@
+
+RewriteEngine on
+RewriteRule ^data(?:/|$) - [F,L]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^silentlab\.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.silentlab\.net$
+RewriteRule ^/?$ "https\:\/\/silentlab\.net\/" [R=301,L]
