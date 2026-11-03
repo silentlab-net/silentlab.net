@@ -1,4 +1,5 @@
 
+DirectorySlash Off
 RewriteEngine on
 RewriteRule ^live\.php$ /event.php [R=301,L]
 RewriteCond %{THE_REQUEST} "\s/+live_grid\.php[?\s]" [NC]
