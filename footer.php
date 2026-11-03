@@ -11,11 +11,11 @@
   <div class="footer-branding">
     <div class="footer-credit">
       Copyright &copy; Silentlab. All rights reserved.<br>
-      Produced at <a href="https://focusstudios.no" title="Visit Focus Studios">Focus Studios</a> by
+      Produced at <a href="https://focusstudios.no">Focus Studios</a> by
       <a href="https://peko.net">Ole Peko Sørensen</a>.
     </div>
-    <a href="https://focusstudios.no" class="focus" aria-label="Focus Studios" title="Visit Focus Studios">
-      <img src="/img/focus_studios.svg" alt="" class="logos" title="Visit Focus Studios">
+    <a href="https://focusstudios.no" class="focus" aria-label="Focus Studios" title="Focus Studios">
+      <img src="/img/focus_studios.svg" alt="" class="logos">
     </a>
   </div>
 </footer>
