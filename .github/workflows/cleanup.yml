@@ -1,0 +1,91 @@
+name: Remove mistaken deployment
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and remove only the mistaken directory
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          SERVER_DIR: ${{ secrets.SERVER_DIR }}
+        shell: python
+        run: |
+          import ftplib
+          import hashlib
+          import io
+          import os
+          from pathlib import Path
+          from urllib.request import urlopen
+
+          if os.environ["SERVER_DIR"].rstrip("/") != "/silentlab.net":
+              raise RuntimeError("Correct deployment destination must be /silentlab.net")
+          for name in ("img/logo.svg", "releases.php", "style.css"):
+              with urlopen("https://silentlab.net/" + name, timeout=30) as response:
+                  content = response.read()
+              if name != "releases.php" and content != Path(name).read_bytes():
+                  raise RuntimeError("Production asset does not match the repository: " + name)
+
+          ftp = ftplib.FTP_TLS(timeout=60)
+          ftp.connect(os.environ["FTP_SERVER"])
+          ftp.login(os.environ["FTP_USERNAME"], os.environ["FTP_PASSWORD"])
+          ftp.prot_p()
+          ftp.cwd("/silentlab")
+          if ftp.pwd().rstrip("/") != "/silentlab":
+              raise RuntimeError("Unexpected cleanup directory")
+          files = []
+          directories = []
+
+          def inspect(directory):
+              for name, facts in ftp.mlsd(directory):
+                  if facts["type"] in ("cdir", "pdir"):
+                      continue
+                  if name in (".", "..") or "/" in name or "\\" in name:
+                      raise RuntimeError("Unsafe remote entry")
+                  remote = directory + "/" + name
+                  if facts["type"] == "dir":
+                      inspect(remote)
+                      directories.append(remote)
+                  elif facts["type"] == "file":
+                      relative = remote.removeprefix("/silentlab/")
+                      content = io.BytesIO()
+                      ftp.retrbinary("RETR " + remote, content.write)
+                      if relative == ".ftp-deploy-sync-state.json":
+                          import json
+                          state = json.loads(content.getvalue())
+                          if not isinstance(state, dict) or "files" not in state:
+                              raise RuntimeError("Invalid deployment state")
+                      else:
+                          local = Path(relative)
+                          if not local.is_file() or hashlib.sha256(local.read_bytes()).digest() != hashlib.sha256(content.getvalue()).digest():
+                              raise RuntimeError("Unknown or changed file. Nothing removed: " + relative)
+                      files.append(remote)
+                  else:
+                      raise RuntimeError("Unsupported remote entry type")
+
+          inspect("/silentlab")
+          if "/silentlab/index.php" not in files:
+              raise RuntimeError("Expected mistaken website was not found")
+          print("Verified mistaken website files:", len(files))
+          for remote in files:
+              ftp.delete(remote)
+          for remote in directories:
+              ftp.rmd(remote)
+          ftp.cwd("/")
+          ftp.rmd("/silentlab")
+          if any(name == "silentlab" for name, facts in ftp.mlsd("/")):
+              raise RuntimeError("Mistaken directory still exists")
+          ftp.quit()
+          print("Removed /silentlab. Left /silentlab.net untouched.")
