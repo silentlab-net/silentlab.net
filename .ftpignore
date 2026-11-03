@@ -1,0 +1,14 @@
+.git/
+.github/
+.dev/
+.vscode/
+tests/
+*.md
+.gitignore
+.ftpignore
+.env*
+*.log
+Thumbs.db
+.DS_Store
+*.ai
+Edit1.txt
