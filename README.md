@@ -16,5 +16,5 @@ The site retains its existing public page routes and content.
 GitHub Actions uploads runtime files via FTPS after website changes are
 pushed to `main`. Run Deploy website manually for the initial upload or
 a retry. Configure repository secrets `FTP_SERVER`, `FTP_USERNAME`,
-`FTP_PASSWORD` and `SERVER_DIR`. The destination must end in `/`.
+`FTP_PASSWORD` and `SERVER_DIR`. A trailing `/` is added automatically.
 Documentation, development tooling and source design files are excluded.

@@ -27,6 +27,7 @@ jobs:
       - name: Check out website
         uses: actions/checkout@v4
       - name: Validate deployment settings
+        id: settings
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -37,14 +38,16 @@ jobs:
           test -n "$FTP_USERNAME" || { echo "Missing FTP_USERNAME"; exit 1; }
           test -n "$FTP_PASSWORD" || { echo "Missing FTP_PASSWORD"; exit 1; }
           test -n "$SERVER_DIR" || { echo "Missing SERVER_DIR"; exit 1; }
-          case "$SERVER_DIR" in */) ;; *) echo "SERVER_DIR must end in /"; exit 1;; esac
+          remote_dir="${SERVER_DIR%/}/"
+          echo "::add-mask::$remote_dir"
+          echo "remote_dir=$remote_dir" >> "$GITHUB_OUTPUT"
       - name: Upload runtime files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.SERVER_DIR }}
+          server-dir: ${{ steps.settings.outputs.remote_dir }}
           protocol: ftps
           exclude: |
             **/.git*
