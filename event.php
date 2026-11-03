@@ -12,8 +12,8 @@ if (is_string($requestedId) && preg_match('/\A[A-Za-z0-9_-]+\z/', $requestedId))
 $event = $currentIndex === false ? null : $events[$currentIndex];
 $pageTitle = $event === null ? 'Event - Silentlab' : $event['date'] . ' - Silentlab';
 $canonicalUrl = $event === null
-  ? 'https://silentlab.net/live.php'
-  : 'https://silentlab.net/live.php?a=' . rawurlencode($event['id']);
+  ? 'https://silentlab.net/event.php'
+  : 'https://silentlab.net/event.php?a=' . rawurlencode($event['id']);
 $setlist = null;
 if ($event !== null) {
   $setlistPath = __DIR__ . '/setlists/' . $event['id'] . '.txt';
@@ -53,9 +53,9 @@ if ($event === null) {
     $posterUrl = is_file($posterPath) ? '/live_posters_small/' . rawurlencode($event['id']) . '.png' : '/img/lp.png';
     ?>
     <div class="top-line">
-      <div class="images"><a href="/live.php?a=<?php echo rawurlencode($events[$previousIndex]['id']); ?>">Previous</a></div>
+      <div class="images"><a href="/event.php?a=<?php echo rawurlencode($events[$previousIndex]['id']); ?>">Previous</a></div>
       <h1><?php echo htmlspecialchars($event['date'], ENT_QUOTES, 'UTF-8'); ?></h1>
-      <div class="images"><a href="/live.php?a=<?php echo rawurlencode($events[$nextIndex]['id']); ?>">Next</a></div>
+      <div class="images"><a href="/event.php?a=<?php echo rawurlencode($events[$nextIndex]['id']); ?>">Next</a></div>
     </div>
 
     <article class="padded colored">

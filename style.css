@@ -93,7 +93,7 @@ a:visited {
   background: var(--grey1);
   display: flex;
   justify-content: space-between;
-  margin: 16px auto 0;
+  margin: 16px auto;
   max-width: 4096px;
   min-height: 48px;
   padding: 8px 10px;
@@ -151,13 +151,8 @@ a:visited {
   text-align: center;
 }
 
-.label-feature h2 {
-  font-size: 26px;
-  margin: 0 0 8px;
-}
-
 .label-feature p {
-  margin: 0 0 16px;
+  margin: 16px 0 0;
 }
 
 .label-logo {
@@ -678,6 +673,14 @@ footer .images {
   max-width: min(100%, 560px);
 }
 
+.merch-image-link,
+.label-feature > a {
+  display: block;
+  margin: 0 auto;
+  max-width: min(100%, 560px);
+  width: fit-content;
+}
+
 .featured-releases,
 .live-grid {
   display: grid;
@@ -686,6 +689,19 @@ footer .images {
   margin: 0 auto;
   max-width: var(--maxwidth);
   padding: 16px;
+  width: 100%;
+}
+
+.featured-releases {
+  background: var(--grey1);
+  padding: 0;
+}
+
+.live-grid,
+.live-details {
+  margin: 16px auto 0;
+  max-width: var(--maxwidth);
+  padding: 0;
   width: 100%;
 }
 
@@ -706,10 +722,28 @@ footer .images {
   height: auto;
   margin: 0 auto 12px;
   max-width: 100%;
+  width: 100%;
 }
 
-.live-card a {
+.live-card > a {
   display: block;
+}
+
+.release-detail {
+  text-align: center;
+}
+
+.release-cover-link {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: fit-content;
+}
+
+.release-cover-link img {
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 
 .live-card img {
@@ -719,7 +753,7 @@ footer .images {
   margin: 0 auto 8px;
   max-width: 100%;
   object-fit: contain;
-  width: 240px;
+  width: 100%;
 }
 
 .live-card h2,

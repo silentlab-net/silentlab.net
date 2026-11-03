@@ -1,5 +1,12 @@
 
 RewriteEngine on
+RewriteRule ^live\.php$ /event.php [R=301,L]
+RewriteCond %{THE_REQUEST} "\s/+live_grid\.php[?\s]" [NC]
+RewriteRule ^live_grid\.php$ /events [R=301,L]
+RewriteCond %{THE_REQUEST} "\s/+(releases|events|videos|lyrics)\.php[?\s]" [NC]
+RewriteRule ^(releases|events|videos|lyrics)\.php$ /$1 [R=301,L]
+RewriteRule ^(releases|events|videos|lyrics)/$ /$1 [R=301,L]
+RewriteRule ^(releases|events|videos|lyrics)$ $1.php [END]
 RewriteRule ^data(?:/|$) - [F,L]
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on

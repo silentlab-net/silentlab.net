@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'Videos - Silentlab';
-$canonicalUrl = 'https://silentlab.net/videos.php';
+$canonicalUrl = 'https://silentlab.net/videos';
 ?>
 <!DOCTYPE html>
 <html lang="en">

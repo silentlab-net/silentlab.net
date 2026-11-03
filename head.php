@@ -14,7 +14,8 @@ $canonicalUrl = isset($canonicalUrl) ? $canonicalUrl : 'https://silentlab.net' .
 <meta property="og:title" content="<?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?>">
 <meta property="og:type" content="website">
 <meta property="og:url" content="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8'); ?>">
-<meta property="og:image" content="https://silentlab.net/img/logo.png">
+<meta property="og:image" content="<?php echo htmlspecialchars($ogImage ?? ('https://silentlab.net/img/logo.png?v=' . filemtime(__DIR__ . '/img/logo.png')), ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:image:type" content="image/png">
 <meta property="og:description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">
 <meta name="keywords" content="Silentlab, Silentlab band, Marie Viktoria Borge-Eriksen, Marie Viktoria Eriksen, Marie Eriksen">
 <meta name="description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">

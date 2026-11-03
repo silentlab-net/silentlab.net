@@ -6,9 +6,10 @@
   <nav id="toc" class="toc-container" aria-label="Main navigation">
     <ul>
       <li><a href="/"><svg class="icons" aria-hidden="true"><use href="/icons.svg#home"></use></svg>Home</a></li>
-      <li><a href="/live_grid.php"><svg class="icons" aria-hidden="true"><use href="/icons.svg#calendar"></use></svg>Events</a></li>
-      <li><a href="/videos.php"><svg class="icons" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg>Videos</a></li>
-      <li><a href="/lyrics.php"><svg class="icons" aria-hidden="true"><use href="/icons.svg#lp"></use></svg>Lyrics</a></li>
+      <li><a href="/releases"><svg class="icons" aria-hidden="true"><use href="/icons.svg#lp"></use></svg>Releases</a></li>
+      <li><a href="/events"><svg class="icons" aria-hidden="true"><use href="/icons.svg#calendar"></use></svg>Events</a></li>
+      <li><a href="/videos"><svg class="icons" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg>Videos</a></li>
+      <li><a href="/lyrics"><svg class="icons" aria-hidden="true"><use href="/icons.svg#pen"></use></svg>Lyrics</a></li>
     </ul>
 
     <div class="toc-close-wrap">

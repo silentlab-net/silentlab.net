@@ -7,9 +7,21 @@ Official website for the band Silentlab.
 - PHP pages and includes
 - Plain JavaScript for page interactions
 - CSS for responsive layout
-- JSON records for Events and lyrics
+- JSON records for Releases, Events and lyrics
 
-The site retains its existing public page routes and content.
+Releases has its own page, linked from the main menu alongside Events,
+Videos and Lyrics. Covers and official listening links are stored in
+`data/releases.json`. The homepage retains the band logo, label and
+Merch sections; social links remain in the footer.
+
+Public section URLs are `/releases`, `/events`, `/videos` and `/lyrics`.
+Events uses one page with Grid (default) and Details (`?view=details`).
+Legacy PHP section URLs redirect to their clean equivalents, preserving queries.
+Individual event links use `/event.php?a=...`; old `/live.php` links redirect.
+Social previews use the PNG logo rendered from the current SVG artwork.
+Each release cover opens `/release.php?a=...`, with its artwork, Spotify
+link and a link back to Releases. Individual social previews use the
+release's PNG cover. Unknown releases return 404.
 
 ## Deployment
 

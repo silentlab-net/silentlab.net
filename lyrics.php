@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'Lyrics - Silentlab';
-$canonicalUrl = 'https://silentlab.net/lyrics.php';
+$canonicalUrl = 'https://silentlab.net/lyrics';
 $lyricsPath = __DIR__ . '/data/lyrics.json';
 $lyricsContent = file_get_contents($lyricsPath);
 if ($lyricsContent === false) {
@@ -43,9 +43,9 @@ foreach ($lyricsData['entries'] as $entry) {
   <?php require __DIR__ . '/toc.php'; ?>
 
   <div class="top-line">
-    <div class="images"><svg class="icons" aria-hidden="true"><use href="/icons.svg#lp"></use></svg></div>
+    <div class="images"><svg class="icons" aria-hidden="true"><use href="/icons.svg#pen"></use></svg></div>
     <h1>Lyrics</h1>
-    <div class="images"><svg class="icons" aria-hidden="true"><use href="/icons.svg#lp"></use></svg></div>
+    <div class="images"><svg class="icons" aria-hidden="true"><use href="/icons.svg#pen"></use></svg></div>
   </div>
 
   <?php foreach ($lyricsData['entries'] as $entry): ?>
