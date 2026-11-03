@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: e27dcca076149176582c1fc83f100cabca9f86f4
       - name: Verify and remove only the mistaken directory
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
@@ -65,7 +67,7 @@ jobs:
                       if relative == ".ftp-deploy-sync-state.json":
                           import json
                           state = json.loads(content.getvalue())
-                          if not isinstance(state, dict) or "files" not in state:
+                          if not isinstance(state, dict) or not isinstance(state.get("data"), list):
                               raise RuntimeError("Invalid deployment state")
                       else:
                           local = Path(relative)
