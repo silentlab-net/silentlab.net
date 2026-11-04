@@ -38,7 +38,7 @@ usort($events, fn(array $left, array $right): int => strcmp(liveEntrySortKey($ri
           <div><?php echo htmlspecialchars($event['event'], ENT_QUOTES, 'UTF-8'); ?></div>
         <?php endif; ?>
         <div><?php echo htmlspecialchars($event['location'], ENT_QUOTES, 'UTF-8'); ?></div>
-        <div><?php echo htmlspecialchars($event['city'], ENT_QUOTES, 'UTF-8'); ?></div>
+        <div><svg class="entry-metadata-icon" aria-hidden="true"><use href="/icons.svg#world"></use></svg> <?php echo htmlspecialchars($event['city'], ENT_QUOTES, 'UTF-8'); ?></div>
         </div>
       </article>
     <?php endforeach; ?>

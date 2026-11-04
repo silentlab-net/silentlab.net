@@ -133,7 +133,7 @@ foreach ($entries as $release) {
     echo sprintf(
         '</h1>
                 <div><span title="Location, Event, City">LOCATION:</span> %s</div>
-                <div><span title="City">CITY:</span> coming</div>
+                <div><span title="City"><svg class="entry-metadata-icon" aria-hidden="true"><use href="/icons.svg#world"></use></svg> CITY:</span> coming</div>
                 <div><span title="Format">FORMAT:</span> %s</div>
                 <div><span title="Price in Norwegian Kroners">PRICE:</span> %s</div>
                 <div><span title="Release date">DATE:</span> %s</div>

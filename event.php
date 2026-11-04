@@ -68,7 +68,7 @@ if ($event === null) {
         <?php endif; ?>
         <p><strong>Artist:</strong> <?php echo htmlspecialchars($event['artist'], ENT_QUOTES, 'UTF-8'); ?></p>
         <p><strong>Location:</strong> <?php echo htmlspecialchars($event['location'], ENT_QUOTES, 'UTF-8'); ?></p>
-        <p><strong>City:</strong> <?php echo htmlspecialchars($event['city'], ENT_QUOTES, 'UTF-8'); ?></p>
+        <p><strong><svg class="entry-metadata-icon" aria-hidden="true"><use href="/icons.svg#world"></use></svg> City:</strong> <?php echo htmlspecialchars($event['city'], ENT_QUOTES, 'UTF-8'); ?></p>
         <?php if (!empty($event['tracks'])): ?>
           <p><strong>Tracks:</strong> <?php echo htmlspecialchars($event['tracks'], ENT_QUOTES, 'UTF-8'); ?></p>
         <?php endif; ?>

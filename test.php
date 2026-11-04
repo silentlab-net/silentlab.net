@@ -127,7 +127,7 @@ if (file_exists($disco_path)) {
 
         $city = trim($contents[5]);
         if (!empty($city)) {
-            echo "<span title='City'>CITY: </span>" . $city . "<br>";
+            echo "<span title='City'><svg class='entry-metadata-icon' aria-hidden='true'><use href='/icons.svg#world'></use></svg> CITY: </span>" . $city . "<br>";
         }
 
         $tracks = trim($contents[6]);
