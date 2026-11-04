@@ -808,6 +808,45 @@ footer .images {
 }
 
 @media (max-width: 799px) {
+  .featured-releases,
+  .live-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .section-entry,
+  .featured-release,
+  .live-card,
+  .release-detail,
+  article.padded:has(> .live-detail-photo) {
+    padding: 0;
+  }
+
+  .entry-text,
+  .live-card h2,
+  .live-card p,
+  .release-detail p {
+    padding: 0 10px;
+  }
+
+  .release-cover-link,
+  .release-cover-link img,
+  .live-detail-photo,
+  .live-detail-photo img {
+    width: 100%;
+  }
+
+  .video-list {
+    padding: 0;
+  }
+
+  .yt iframe {
+    aspect-ratio: 16 / 9;
+    border: 0;
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
   .live-card img {
     width: 100%;
   }

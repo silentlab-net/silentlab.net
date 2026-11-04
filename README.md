@@ -23,6 +23,9 @@ Each release cover opens `/release.php?a=...`, with its artwork, Spotify
 link and a link back to Releases. Individual social previews use the
 release's PNG cover. Unknown releases return 404.
 
+On phones, release covers, event posters and videos fill the page width.
+Release and event grids use one column. Desktop layouts remain unchanged.
+
 ## Deployment
 
 GitHub Actions uploads runtime files via FTPS after website changes are
