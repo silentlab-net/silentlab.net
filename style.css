@@ -835,6 +835,10 @@ footer .images {
     width: 100%;
   }
 
+  .featured-release img {
+    aspect-ratio: auto 1;
+  }
+
   .video-list {
     padding: 0;
   }
