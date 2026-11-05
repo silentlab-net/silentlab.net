@@ -28,8 +28,14 @@ Release and event grids use one column. Desktop layouts remain unchanged.
 
 ## Deployment
 
-GitHub Actions uploads runtime files via FTPS after website changes are
-pushed to `main`. Run Deploy website manually for the initial upload or
-a retry. Configure repository secrets `FTP_SERVER`, `FTP_USERNAME`,
-`FTP_PASSWORD` and `SERVER_DIR`. A trailing `/` is added automatically.
-Documentation, development tooling and source design files are excluded.
+The standardized GitHub Actions workflow uploads runtime files using lftp
+over SFTP after changes are pushed to `main`. It reads `.ftpignore` and
+recovers changes since the last successful upload.
+Configure `SFTP_HOST`, `SFTP_USERNAME`, `SFTP_PASSWORD`, `SFTP_REMOTE_DIR`
+and optional `SFTP_PORT` (22 by default). Existing `FTP_SERVER`,
+`FTP_USERNAME`, `FTP_PASSWORD` and `SERVER_DIR` secrets are accepted as
+compatibility aliases. Verify their SFTP access and destination using the
+read-only **check** mode before uploading. Full mode preserves remote-only files.
+Documentation, development tooling and source design files remain excluded.
+Run `node --test .github/tests/deployment.cjs` for deployment tests.
+See the shared [deployment procedure](../SITES.md#deployment).
