@@ -29,11 +29,11 @@ usort($events, fn(array $left, array $right): int => strcmp(liveEntrySortKey($ri
       $eventName = trim($event['event']) !== '' ? $event['event'] : $event['artist'];
       ?>
       <article class="<?php echo $view === 'grid' ? 'live-card' : 'section-entry padded colored'; ?>">
-        <a href="/event.php?a=<?php echo rawurlencode($event['id']); ?>">
+        <a href="/event?a=<?php echo rawurlencode($event['id']); ?>">
           <img class="<?php echo $view === 'details' ? 'entry-cover entry-event-photo' : ''; ?>" src="<?php echo htmlspecialchars($posterUrl, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($eventName . ' live poster', ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
         </a>
         <div class="entry-text">
-        <h2><a href="/event.php?a=<?php echo rawurlencode($event['id']); ?>"><?php echo htmlspecialchars($event['date'], ENT_QUOTES, 'UTF-8'); ?></a></h2>
+        <h2><a href="/event?a=<?php echo rawurlencode($event['id']); ?>"><?php echo htmlspecialchars($event['date'], ENT_QUOTES, 'UTF-8'); ?></a></h2>
         <?php if (trim($event['event']) !== ''): ?>
           <div><?php echo htmlspecialchars($event['event'], ENT_QUOTES, 'UTF-8'); ?></div>
         <?php endif; ?>

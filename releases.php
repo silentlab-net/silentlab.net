@@ -47,10 +47,10 @@ if ($isReleasePage) {
   if ($release === null) {
     http_response_code(404);
     $pageTitle = 'Release not found - Silentlab';
-    $canonicalUrl = 'https://silentlab.net/release.php';
+    $canonicalUrl = 'https://silentlab.net/release';
   } else {
     $pageTitle = $release['title'] . ' - Silentlab';
-    $canonicalUrl = 'https://silentlab.net/release.php?a=' . rawurlencode($requestedId);
+    $canonicalUrl = 'https://silentlab.net/release?a=' . rawurlencode($requestedId);
     $ogImage = 'https://silentlab.net' . $release['cover'];
   }
 }
@@ -84,7 +84,7 @@ if ($isReleasePage) {
   <div class="featured-releases">
     <?php foreach ($releasesData['entries'] as $entry): ?>
       <article class="featured-release">
-        <a href="/release.php?a=<?php echo rawurlencode(pathinfo($entry['cover'], PATHINFO_FILENAME)); ?>">
+        <a href="/release?a=<?php echo rawurlencode(pathinfo($entry['cover'], PATHINFO_FILENAME)); ?>">
           <img src="<?php echo htmlspecialchars($entry['cover'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($entry['title'], ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
         </a>
       </article>
