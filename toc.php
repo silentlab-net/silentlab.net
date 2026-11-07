@@ -2,7 +2,9 @@
   <?php require __DIR__ . '/burger.php'; ?>
 
   <div class="heading">
-    <a href="/">Silentlab</a>
+    <a href="/" aria-label="Silentlab home">
+      <img src="/img/logo.svg?v=<?php echo filemtime(__DIR__ . '/img/logo.svg'); ?>" alt="Silentlab">
+    </a>
   </div>
 
   <div id="settings-menu-container">

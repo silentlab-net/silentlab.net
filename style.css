@@ -157,7 +157,7 @@ a:visited {
 
 .label-logo {
   display: block;
-  height: clamp(72px, 10vw, 128px);
+  height: 32px;
   margin: 0 auto;
   max-width: 100%;
   width: auto;
@@ -375,12 +375,24 @@ a:visited {
 .top-heading > .heading {
   min-width: 0;
   padding: 0;
+  width: 100%;
 }
 
 .top-heading > .heading a {
   font-size: 28px;
   font-weight: bold;
   line-height: 32px;
+}
+
+.top-heading > .heading img {
+  display: block;
+  height: 32px;
+  max-width: 100%;
+  width: auto;
+}
+
+.top-heading > .heading a:hover img {
+  opacity: 0.8;
 }
 
 .settings-toggle {

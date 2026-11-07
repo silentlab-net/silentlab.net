@@ -12,10 +12,6 @@
 <body>
   <?php require __DIR__ . '/toc.php'; ?>
 
-  <section class="page-introduction padded center-on-medium-screen colored">
-    <img class="home-logo" src="/img/logo.svg" alt="Silentlab">
-  </section>
-
   <div class="top-line">
     <div class="images"><svg class="icons" aria-hidden="true"><use href="/icons.svg?v=<?php echo filemtime(__DIR__ . '/icons.svg'); ?>#t-shirt"></use></svg></div>
     <h1>Merch</h1>

@@ -11,8 +11,9 @@ Official website for the band Silentlab.
 
 Releases has its own page, linked from the main menu alongside Events,
 Videos and Lyrics. Covers and official listening links are stored in
-`data/releases.json`. The homepage retains the band logo, label and
-Merch sections; social links remain in the footer.
+`data/releases.json`. The fixed header uses the Silentlab logo as its home link.
+The front page retains the label and Merch sections. Social links remain in
+the footer.
 
 Public section URLs are `/releases`, `/events`, `/videos` and `/lyrics`.
 Events uses one page with Grid (default) and Details (`?view=details`).
