@@ -159,7 +159,9 @@ async function shareCurrentPage() {
 
 function resetSettings() {
   localStorage.clear();
-  window.location.reload();
+  const url = new URL(window.location.href);
+  if (url.pathname === '/events') url.searchParams.delete('view');
+  window.location.replace(url.href);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
