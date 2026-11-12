@@ -27,6 +27,12 @@ release's PNG cover. Unknown releases return 404.
 On phones, release covers, event posters and videos fill the page width.
 Release and event grids use one column. Desktop layouts remain unchanged.
 
+Dark/Light mode uses the shared light palette for the page background,
+header and sidebars, with the existing saved Settings choice. Palette variables
+replace page inversion so raster images and bitmap backgrounds stay unfiltered;
+counter-inversion with hue rotation can otherwise change saturated artwork.
+Only monochrome external SVG logos are inverted in Light mode.
+
 ## Deployment
 
 The standardized GitHub Actions workflow uploads runtime files using lftp

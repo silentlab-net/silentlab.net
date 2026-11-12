@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background-color: transparent;
+  background-color: var(--black);
   color: var(--white);
   margin: 0;
   padding-top: 48px;
@@ -293,11 +293,6 @@ a:visited {
 .entry-band-photo {
   aspect-ratio: 16 / 9;
   object-fit: cover;
-}
-
-.invert-colors .entry-cover,
-.invert-colors img:not([src*=".svg" i]) {
-  filter: invert(1) hue-rotate(180deg);
 }
 
 .entry-placeholder {
@@ -637,21 +632,18 @@ footer .images {
   user-select: none;
 }
 
-.invert-colors body > :not(.top-heading),
-.invert-colors .top-heading > .heading,
-.invert-colors .settings-toggle,
-.invert-colors .toc-container,
-.invert-colors .settings-panel {
-  filter: invert(1) hue-rotate(180deg);
+.invert-colors {
+  --color1: #23a3ff;
+  --color2: #ff6eff;
+  --grey1: #ddd;
+  --grey2: #bbb;
+  --white: #000;
+  --black: #fff;
+  color-scheme: light;
 }
 
-.invert-colors .top-heading {
-  background-color: #ddd;
-}
-
-.invert-colors .toc-container .settings-toggle,
-.invert-colors .settings-panel .settings-toggle {
-  filter: none;
+.invert-colors img[src*=".svg" i] {
+  filter: invert(1);
 }
 
 .top-heading > #settings-menu-container {
