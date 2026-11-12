@@ -19,6 +19,10 @@ Public section URLs are `/releases`, `/events`, `/videos` and `/lyrics`.
 Events uses one page with Grid (default) and Details (`?view=details`).
 Legacy PHP section URLs redirect to their clean equivalents, preserving queries.
 Individual event links use `/event?a=...`; old `/live.php` links redirect.
+Known setlists are stored with their event records in `data/live.json` and
+displayed on the corresponding event pages. Undocumented song orders are not
+inferred; events without a known setlist omit the section.
+Events without a poster show a calendar placeholder.
 Social previews use the PNG logo rendered from the current SVG artwork.
 Each release cover opens `/release?a=...`, with its artwork, Spotify
 link and a link back to Releases. Individual social previews use the

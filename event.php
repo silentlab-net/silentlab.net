@@ -14,8 +14,8 @@ $pageTitle = $event === null ? 'Event - Silentlab' : $event['date'] . ' - Silent
 $canonicalUrl = $event === null
   ? 'https://silentlab.net/event'
   : 'https://silentlab.net/event?a=' . rawurlencode($event['id']);
-$setlist = null;
-if ($event !== null) {
+$setlist = $event['setlist'] ?? null;
+if ($event !== null && $setlist === null) {
   $setlistPath = __DIR__ . '/setlists/' . $event['id'] . '.txt';
   if (is_file($setlistPath)) {
     $setlist = file_get_contents($setlistPath);
@@ -50,7 +50,7 @@ if ($event === null) {
     $previousIndex = ($currentIndex - 1 + count($events)) % count($events);
     $nextIndex = ($currentIndex + 1) % count($events);
     $posterPath = __DIR__ . '/live_posters_small/' . $event['id'] . '.png';
-    $posterUrl = is_file($posterPath) ? '/live_posters_small/' . rawurlencode($event['id']) . '.png' : '/img/lp.png';
+    $posterUrl = is_file($posterPath) ? '/live_posters_small/' . rawurlencode($event['id']) . '.png' : null;
     ?>
     <div class="top-line">
       <div class="images"><a href="/event?a=<?php echo rawurlencode($events[$previousIndex]['id']); ?>">Previous</a></div>
@@ -60,7 +60,11 @@ if ($event === null) {
 
     <article class="padded colored">
       <div class="live-detail-photo">
-        <img src="<?php echo htmlspecialchars($posterUrl, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars((trim($event['event']) !== '' ? $event['event'] : 'Silentlab event') . ' poster', ENT_QUOTES, 'UTF-8'); ?>">
+        <?php if ($posterUrl !== null): ?>
+          <img src="<?php echo htmlspecialchars($posterUrl, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars((trim($event['event']) !== '' ? $event['event'] : 'Silentlab event') . ' poster', ENT_QUOTES, 'UTF-8'); ?>">
+        <?php else: ?>
+          <span class="event-poster-placeholder" role="img" aria-label="Poster not available"><svg aria-hidden="true"><use href="/icons.svg#calendar"></use></svg></span>
+        <?php endif; ?>
       </div>
       <div class="entry-text">
         <?php if (trim($event['event']) !== ''): ?>

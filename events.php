@@ -25,12 +25,16 @@ usort($events, fn(array $left, array $right): int => strcmp(liveEntrySortKey($ri
     <?php foreach ($events as $event): ?>
       <?php
       $posterPath = __DIR__ . '/live_posters_small/' . $event['id'] . '.png';
-      $posterUrl = is_file($posterPath) ? '/live_posters_small/' . rawurlencode($event['id']) . '.png' : '/img/lp.png';
+      $posterUrl = is_file($posterPath) ? '/live_posters_small/' . rawurlencode($event['id']) . '.png' : null;
       $eventName = trim($event['event']) !== '' ? $event['event'] : $event['artist'];
       ?>
       <article class="<?php echo $view === 'grid' ? 'live-card' : 'section-entry padded colored'; ?>">
         <a href="/event?a=<?php echo rawurlencode($event['id']); ?>">
-          <img class="<?php echo $view === 'details' ? 'entry-cover entry-event-photo' : ''; ?>" src="<?php echo htmlspecialchars($posterUrl, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($eventName . ' live poster', ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
+          <?php if ($posterUrl !== null): ?>
+            <img class="<?php echo $view === 'details' ? 'entry-cover entry-event-photo' : ''; ?>" src="<?php echo htmlspecialchars($posterUrl, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($eventName . ' live poster', ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
+          <?php else: ?>
+            <span class="event-poster-placeholder" role="img" aria-label="Poster not available"><svg aria-hidden="true"><use href="/icons.svg#calendar"></use></svg></span>
+          <?php endif; ?>
         </a>
         <div class="entry-text">
         <h2><a href="/event?a=<?php echo rawurlencode($event['id']); ?>"><?php echo htmlspecialchars($event['date'], ENT_QUOTES, 'UTF-8'); ?></a></h2>

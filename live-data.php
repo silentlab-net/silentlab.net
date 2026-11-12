@@ -31,6 +31,11 @@ function loadLiveEntries(): array
       http_response_code(500);
       exit('Unable to load events.');
     }
+    if (array_key_exists('setlist', $entry) && (!is_string($entry['setlist']) || trim($entry['setlist']) === '')) {
+      error_log('Silentlab live data contains an invalid setlist.');
+      http_response_code(500);
+      exit('Unable to load events.');
+    }
   }
 
   return $data['entries'];

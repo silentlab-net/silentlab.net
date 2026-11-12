@@ -9,7 +9,8 @@
                         "event":  "Frexta Radio Party",
                         "location":  "Marie\u0027s Place",
                         "city":  "Fredrikstad",
-                        "facebook":  "https://facebook.com/events/338878603488094"
+                        "facebook":  "https://facebook.com/events/338878603488094",
+                        "setlist":  "1. The Sea, You And Me\n2. In The Cold, Cold Night\n3. My Bed Is Red\n4. The Day We Spent In Spain\n5. Angels In Heaven\n6. Blister In The Sun"
                     },
                     {
                         "id":  "01-07-2017_01",
@@ -18,7 +19,8 @@
                         "artist":  "Silentlab",
                         "event":  "Kunst Og Kultur Til Fylket",
                         "location":  "Nedre Magasin, Fredriksten Festning",
-                        "city":  "Halden"
+                        "city":  "Halden",
+                        "setlist":  "1. Sailor's Waltz\n2. Hey, Hey, Goodbye\n3. Blue As You"
                     },
                     {
                         "id":  "02-06-2018_01",
@@ -28,7 +30,8 @@
                         "event":  "",
                         "location":  "Quarteret",
                         "city":  "Fredrikstad",
-                        "facebook":  "https://facebook.com/events/201797500620612"
+                        "facebook":  "https://facebook.com/events/201797500620612",
+                        "setlist":  "1. In The Cold, Cold Night\n2. Blue As You\n3. Sailor's Waltz\n4. The Day We Spent In Spain\n5. Hey, Hey, Goodbye\n6. Lonesome Town\n7. Bang Bang\n8. The Sea, You And Me\n9. Twice As Old\n10. Blister In The Sun\n11. That Thing Called Love"
                     },
                     {
                         "id":  "12-01-2018_01",
@@ -38,7 +41,28 @@
                         "event":  "",
                         "location":  "Quarteret",
                         "city":  "Fredrikstad",
-                        "facebook":  "https://facebook.com/events/2430003700559024"
+                        "facebook":  "https://facebook.com/events/2430003700559024",
+                        "setlist":  "1. Twice As Old\n2. Lonesome Town\n3. Blister In The Sun"
+                    },
+                    {
+                        "id":  "05-05-2018_01",
+                        "date":  "05-05-2018",
+                        "weekday":  "Sat",
+                        "artist":  "Silentlab",
+                        "event":  "FMV Jam",
+                        "location":  "St. Croix huset",
+                        "city":  "Fredrikstad",
+                        "setlist":  "1. Sailor's Waltz\n2. Hey, Hey, Goodbye"
+                    },
+                    {
+                        "id":  "27-02-2019_01",
+                        "date":  "27-02-2019",
+                        "weekday":  "Wed",
+                        "artist":  "Silentlab",
+                        "event":  "Open Mic",
+                        "location":  "Verdensspeilet",
+                        "city":  "Fredrikstad",
+                        "setlist":  "1. Hey, Hey, Goodbye\n2. Lonesome Town\n3. In The Cold, Cold Night"
                     },
                     {
                         "id":  "23-08-2019_01",

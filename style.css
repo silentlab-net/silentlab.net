@@ -760,6 +760,25 @@ footer .images {
   width: 100%;
 }
 
+.event-poster-placeholder {
+  align-items: center;
+  aspect-ratio: 210 / 297;
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.event-poster-placeholder svg {
+  fill: var(--white);
+  height: 64px;
+  width: 64px;
+}
+
+.live-card .event-poster-placeholder {
+  margin-bottom: 8px;
+}
+
 .live-card h2,
 .lyrics-entry h2 {
   font-size: 26px;
