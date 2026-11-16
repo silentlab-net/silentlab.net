@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'Videos - Silentlab';
+$pageTitle = 'Silentlab - Videos';
 $canonicalUrl = 'https://silentlab.net/videos';
 ?>
 <!DOCTYPE html>

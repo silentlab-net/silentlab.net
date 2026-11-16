@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'Events - Silentlab';
+$pageTitle = 'Silentlab - Events';
 $canonicalUrl = 'https://silentlab.net/events';
 $view = $_GET['view'] ?? 'grid';
 if (!is_string($view) || !in_array($view, ['grid', 'details'], true)) {

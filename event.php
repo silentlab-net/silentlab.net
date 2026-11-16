@@ -10,7 +10,7 @@ if (is_string($requestedId) && preg_match('/\A[A-Za-z0-9_-]+\z/', $requestedId))
 }
 
 $event = $currentIndex === false ? null : $events[$currentIndex];
-$pageTitle = $event === null ? 'Event - Silentlab' : $event['date'] . ' - Silentlab';
+$pageTitle = $event === null ? 'Silentlab - Event' : 'Silentlab - ' . $event['date'];
 $canonicalUrl = $event === null
   ? 'https://silentlab.net/event'
   : 'https://silentlab.net/event?a=' . rawurlencode($event['id']);

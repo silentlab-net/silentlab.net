@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'Releases - Silentlab';
+$pageTitle = 'Silentlab - Releases';
 $canonicalUrl = 'https://silentlab.net/releases';
 $isReleasePage = $isReleasePage ?? false;
 $releasesPath = __DIR__ . '/data/releases.json';
@@ -46,10 +46,10 @@ if ($isReleasePage) {
   }
   if ($release === null) {
     http_response_code(404);
-    $pageTitle = 'Release not found - Silentlab';
+    $pageTitle = 'Silentlab - Release not found';
     $canonicalUrl = 'https://silentlab.net/release';
   } else {
-    $pageTitle = $release['title'] . ' - Silentlab';
+    $pageTitle = 'Silentlab - ' . $release['title'];
     $canonicalUrl = 'https://silentlab.net/release?a=' . rawurlencode($requestedId);
     $ogImage = 'https://silentlab.net' . $release['cover'];
   }

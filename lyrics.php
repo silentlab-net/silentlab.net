@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'Lyrics - Silentlab';
+$pageTitle = 'Silentlab - Lyrics';
 $canonicalUrl = 'https://silentlab.net/lyrics';
 $lyricsPath = __DIR__ . '/data/lyrics.json';
 $lyricsContent = file_get_contents($lyricsPath);
