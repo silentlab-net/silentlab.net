@@ -5,12 +5,20 @@
 
   <nav id="toc" class="toc-container" aria-label="Main navigation">
     <ul>
-      <li><a href="/"><svg class="icons" aria-hidden="true"><use href="/icons.svg#home"></use></svg>Home</a></li>
-      <li><a href="/releases"><svg class="icons" aria-hidden="true"><use href="/icons.svg#lp"></use></svg>Releases</a></li>
-      <li><a href="/events"><svg class="icons" aria-hidden="true"><use href="/icons.svg#calendar"></use></svg>Events</a></li>
-      <li><a href="/videos"><svg class="icons" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg>Videos</a></li>
-      <li><a href="/lyrics"><svg class="icons" aria-hidden="true"><use href="/icons.svg#pen"></use></svg>Lyrics</a></li>
-      <li><a href="/updates"><svg class="icons" aria-hidden="true"><use href="/icons.svg#github"></use></svg>Updates</a></li>
+      <?php
+      $tocCurrentPath = rtrim(preg_replace('~\.php$~', '', parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/'), '/') ?: '/';
+      if ($tocCurrentPath === '/index') $tocCurrentPath = '/';
+      $tocCurrentPath = ['/event' => '/events', '/release' => '/releases'][$tocCurrentPath] ?? $tocCurrentPath;
+      foreach ([
+        ['/', 'Home', 'home'],
+        ['/releases', 'Releases', 'lp'],
+        ['/events', 'Events', 'calendar'],
+        ['/videos', 'Videos', 'youtube'],
+        ['/lyrics', 'Lyrics', 'pen'],
+        ['/updates', 'Updates', 'github'],
+      ] as [$tocUrl, $tocLabel, $tocIcon]): ?>
+      <li><a href="<?php echo $tocUrl; ?>"<?php if ($tocCurrentPath === $tocUrl): ?> aria-current="page"<?php endif; ?>><svg class="icons" aria-hidden="true"><use href="/icons.svg#<?php echo $tocIcon; ?>"></use></svg><?php echo $tocLabel; ?></a></li>
+      <?php endforeach; ?>
     </ul>
 
     <div class="toc-close-wrap">

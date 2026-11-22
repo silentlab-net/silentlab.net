@@ -13,7 +13,7 @@
   <?php require __DIR__ . '/toc.php'; ?>
 
   <div class="top-line">
-    <div class="images"><svg class="icons" aria-hidden="true"><use href="/icons.svg?v=<?php echo filemtime(__DIR__ . '/icons.svg'); ?>#t-shirt"></use></svg></div>
+    <div class="images"><svg class="icons" aria-hidden="true"><use href="/icons.svg?v=<?php echo filemtime(__DIR__ . '/icons.svg'); ?>#t_shirt"></use></svg></div>
     <h1>Merch</h1>
     <div class="images">
       <svg class="icons show-pointer" role="button" tabindex="0" aria-label="Expand/collapse" onclick="toggleDiv('wearContainer')">
