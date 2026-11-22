@@ -6,6 +6,9 @@
     <a href="https://soundcloud.com/silentlab" aria-label="SoundCloud" title="SoundCloud">
       <svg class="icons" aria-hidden="true" focusable="false"><use href="/icons.svg#soundcloud"></use></svg>
     </a>
+    <a href="https://github.com/silentlab-net/silentlab.net" aria-label="GitHub" title="GitHub">
+      <svg class="icons" aria-hidden="true" focusable="false"><use href="/icons.svg#github"></use></svg>
+    </a>
   </div>
 
   <div class="footer-branding">

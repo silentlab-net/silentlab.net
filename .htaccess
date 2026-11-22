@@ -1,16 +1,17 @@
 
 DirectorySlash Off
 RewriteEngine on
+RewriteRule ^updates_view\.php$ - [F,L]
 Options -MultiViews
 RewriteCond %{THE_REQUEST} "\s/+index\.php[?\s]" [NC]
 RewriteRule ^index\.php$ / [R=301,L]
 RewriteRule ^live\.php$ /event [R=301,L]
 RewriteCond %{THE_REQUEST} "\s/+live_grid\.php[?\s]" [NC]
 RewriteRule ^live_grid\.php$ /events [R=301,L]
-RewriteCond %{THE_REQUEST} "\s/+(releases|release|events|event|videos|lyrics)\.php[?\s]" [NC]
-RewriteRule ^(releases|release|events|event|videos|lyrics)\.php$ /$1 [R=301,L]
-RewriteRule ^(releases|release|events|event|videos|lyrics)/$ /$1 [R=301,L]
-RewriteRule ^(releases|release|events|event|videos|lyrics)$ $1.php [END]
+RewriteCond %{THE_REQUEST} "\s/+(releases|release|events|event|videos|lyrics|updates)\.php[?\s]" [NC]
+RewriteRule ^(releases|release|events|event|videos|lyrics|updates)\.php$ /$1 [R=301,L]
+RewriteRule ^(releases|release|events|event|videos|lyrics|updates)/$ /$1 [R=301,L]
+RewriteRule ^(releases|release|events|event|videos|lyrics|updates)$ $1.php [END]
 RewriteRule ^data(?:/|$) - [F,L]
 RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-SSL} !on

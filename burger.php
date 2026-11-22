@@ -10,6 +10,7 @@
       <li><a href="/events"><svg class="icons" aria-hidden="true"><use href="/icons.svg#calendar"></use></svg>Events</a></li>
       <li><a href="/videos"><svg class="icons" aria-hidden="true"><use href="/icons.svg#youtube"></use></svg>Videos</a></li>
       <li><a href="/lyrics"><svg class="icons" aria-hidden="true"><use href="/icons.svg#pen"></use></svg>Lyrics</a></li>
+      <li><a href="/updates"><svg class="icons" aria-hidden="true"><use href="/icons.svg#github"></use></svg>Updates</a></li>
     </ul>
 
     <div class="toc-close-wrap">
