@@ -4,6 +4,10 @@ $pageDescription = isset($pageDescription) ? $pageDescription : 'The official we
 $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
 $canonicalUri = preg_replace('~^/index\.php(?=\?|$)~', '/', $requestUri);
 $canonicalUrl = isset($canonicalUrl) ? $canonicalUrl : 'https://silentlab.net' . $canonicalUri;
+$ogImage = $ogImage ?? ('https://silentlab.net/img/logo.png?v=' . filemtime(__DIR__ . '/img/logo.png'));
+$ogImagePath = parse_url($ogImage, PHP_URL_PATH);
+$ogImageSize = is_string($ogImagePath) && is_file(__DIR__ . $ogImagePath)
+    ? getimagesize(__DIR__ . $ogImagePath) : false;
 ?>
 <title><?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?></title>
 <meta charset="utf-8">
@@ -14,8 +18,13 @@ $canonicalUrl = isset($canonicalUrl) ? $canonicalUrl : 'https://silentlab.net' .
 <meta property="og:title" content="<?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?>">
 <meta property="og:type" content="website">
 <meta property="og:url" content="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8'); ?>">
-<meta property="og:image" content="<?php echo htmlspecialchars($ogImage ?? ('https://silentlab.net/img/logo.png?v=' . filemtime(__DIR__ . '/img/logo.png')), ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:image" content="<?php echo htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8'); ?>">
 <meta property="og:image:type" content="image/png">
+<?php if ($ogImageSize !== false): ?>
+<meta property="og:image:width" content="<?php echo $ogImageSize[0]; ?>">
+<meta property="og:image:height" content="<?php echo $ogImageSize[1]; ?>">
+<?php endif; ?>
 <meta property="og:description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">
 <meta name="keywords" content="Silentlab, Silentlab band, Marie Viktoria Borge-Eriksen, Marie Viktoria Eriksen, Marie Eriksen">
 <meta name="description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">
+  
