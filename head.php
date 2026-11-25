@@ -28,4 +28,5 @@ $ogImageSize = is_string($ogImagePath) && is_file(__DIR__ . $ogImagePath)
 <meta property="og:description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">
 <meta name="keywords" content="Silentlab, Silentlab band, Marie Viktoria Borge-Eriksen, Marie Viktoria Eriksen, Marie Eriksen">
 <meta name="description" content="<?php echo htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8'); ?>">
+<?php require __DIR__ . '/site_ui.php'; ?>
   

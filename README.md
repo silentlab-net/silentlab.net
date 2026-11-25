@@ -2,6 +2,12 @@
 
 Official website for the band Silentlab.
 
+Navigation and Settings use the identical cross-site `site_ui.php`,
+`site_ui.css` and `site_ui.js` components maintained from Pekosoft.
+The TOC begins with Home, Previous page, Play and Next page. Settings includes
+Background, off by default, using the existing photographic Sundays cover
+configured in `data/site_ui.json`. Its state persists and Reset turns it off.
+
 ## Technology
 
 - PHP pages and includes
